@@ -10,7 +10,8 @@
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link     http://example.com/PHP-Library
  */
-class Controller {
+class Controller 
+{
 
     /**
      * Loads the model.
@@ -33,7 +34,8 @@ class Controller {
      *
      * @return null
      */
-    public function view($view, $data = []) {
+    public function view($view, $data = []) 
+    {
 
         if (file_exists(VIEW_PATH . $view . '.php')) {
             include_once VIEW_PATH . $view . '.php';
