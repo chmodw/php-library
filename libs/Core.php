@@ -34,7 +34,7 @@ class Core
      *
      * @return null
      */
-    private static function _init() 
+    private static function _init()
     {
         include_once "./app/config/paths.php";
 
@@ -58,9 +58,9 @@ class Core
      *
      * @return null
      */
-    private static function _autoload() 
+    private static function _autoload()
     {
-        spl_autoload_register( 
+        spl_autoload_register(
             function ($className) {
                 include_once CONTROLLER_PATH . $className . '.php';
             }
@@ -74,7 +74,7 @@ class Core
      *
      * @return null
      */
-    private static function _dispatch(array $url) 
+    private static function _dispatch(array $url)
     {
         // Getting the controller name
         $controller = strtolower($url[0]);
@@ -88,7 +88,6 @@ class Core
         $controller = ucfirst($controller);
 
         if (file_exists(CONTROLLER_PATH . $controller . ".php")) {
-
             $controllerObj = new $controller();
 
             if (is_callable(array($controllerObj, $action))) {
