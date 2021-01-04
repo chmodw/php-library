@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Core class.
  *
@@ -16,7 +15,7 @@ class Core
     /**
      * Function Run.
      *
-     * @param array $url
+     * @param array $url incoming url
      *
      * @return null
      */
