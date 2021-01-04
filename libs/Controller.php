@@ -37,8 +37,8 @@ class Controller
     public function view($view, $data = []) 
     {
 
-        if (file_exists(VIEW_PATH . $view . '.php')) {
-            include_once VIEW_PATH . $view . '.php';
+        if (file_exists(VIEW_PATH . $view . 'view.php')) {
+            include_once VIEW_PATH . $view . 'view.php';
         } else {
             die('View Error');
         }
