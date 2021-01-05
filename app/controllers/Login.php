@@ -15,12 +15,13 @@ class Login extends Controller
     /**
      * Loads the index view
      *
-     * @param string $model name of the model
+     * @param null
      *
      * @return Model
      */
     public function index()
     {
-        $this->view("login");
+        $data = ['hello if you can view this. it is good'];
+        $this->view("login", $data);
     }
 }

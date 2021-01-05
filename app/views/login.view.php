@@ -1,1 +1,3 @@
-Hello from login
+<?php
+
+var_dump($data);

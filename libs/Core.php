@@ -96,6 +96,7 @@ class Core
 
         // if controller not found : return error
         header('HTTP/1.1 404 Not Found');
-        die('404 - Requested page not found');
+        include_once ROOT . "404.php";
+        die();
     }
 }
