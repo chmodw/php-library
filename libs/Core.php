@@ -88,15 +88,22 @@ class Core
 
         if (file_exists(CONTROLLER_PATH . $controller . ".php")) {
             $controllerObj = new $controller();
-
+            
             if (is_callable(array($controllerObj, $action))) {
-                return $controllerObj->$action($params);
+                $controllerObj->$action($params);
+            } else {
+                // if method not found : return error
+                header('HTTP/1.1 404 Not Found');
+                include_once ROOT . "404.php";
+                die();
             }
+        } else {
+            // if controller not found : return error
+            header('HTTP/1.1 404 Not Found');
+            include_once ROOT . "404.php";
+            die();
         }
-
-        // if controller not found : return error
-        header('HTTP/1.1 404 Not Found');
-        include_once ROOT . "404.php";
-        die();
+        // End the session
+        session_destroy();
     }
 }
