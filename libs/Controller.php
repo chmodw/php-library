@@ -10,7 +10,7 @@
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link     http://example.com/PHP-Library
  */
-class Controller 
+class Controller
 {
 
     /**
@@ -20,7 +20,7 @@ class Controller
      *
      * @return Model
      */
-    public function model(String $model) 
+    public function model(String $model)
     {
         include_once MODEL_PATH . $model . '.php';
         return new $model();
@@ -34,7 +34,7 @@ class Controller
      *
      * @return null
      */
-    public function view($view, $data = []) 
+    public function view($view, $data = [])
     {
 
         if (file_exists(VIEW_PATH . $view . '.view.php')) {
@@ -43,5 +43,4 @@ class Controller
             die('View Error');
         }
     }
-
 }

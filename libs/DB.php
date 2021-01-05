@@ -24,7 +24,7 @@ class DB
      *
      * @return null
      */
-    public function __construct() 
+    public function __construct()
     {
         $dsn = 'mysql:host='.DB_HOST.';dbname='. DB_NAME;
 
@@ -34,13 +34,12 @@ class DB
         );
 
         // Creating database PDO Connection
-        try{
+        try {
             $this->conn = new PDO($dsn, DB_USER, DB_PASS, $options);
-        } catch(PDOException $e){
+        } catch (PDOException $e) {
             $this->error = $e->getMessage();
             echo $this->error;
         }
-         
     }
 
     /**

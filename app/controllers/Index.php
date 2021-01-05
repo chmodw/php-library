@@ -11,7 +11,8 @@
  * @link     http://example.com/PHP-Library
  */
 class Index extends Controller
-{    
+{
+
     /**
      * Loads the index view
      *

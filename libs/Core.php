@@ -69,7 +69,7 @@ class Core
     /**
      * Call the controllers and controller methods accordingly
      *
-     * @param array $url
+     * @param array $url url
      *
      * @return null
      */

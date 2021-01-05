@@ -11,7 +11,8 @@
  * @link     http://example.com/PHP-Library
  */
 class Users extends Controller
-{    
+{
+
     /**
      * Loads the index view
      *
@@ -33,7 +34,7 @@ class Users extends Controller
      * @return Model
      */
     public function login()
-    {   
+    {
         // shows the login page
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             return $this->view("users/login");
@@ -43,6 +44,5 @@ class Users extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             return print ("user authenticating");
         }
-
     }
 }

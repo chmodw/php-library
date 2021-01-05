@@ -21,3 +21,4 @@ define("CONFIG_PATH", APP_PATH . "config" . DS);
 define("CONTROLLER_PATH", APP_PATH . "controllers" . DS);
 define("MODEL_PATH", APP_PATH . "models" . DS);
 define("VIEW_PATH", APP_PATH . "views" . DS);
+define("SITE_HOME", DS . "phplibrary" . DS);

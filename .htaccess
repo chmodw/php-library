@@ -4,10 +4,17 @@
 
    RewriteEngine on
 
+
+   RewriteCond %{REQUEST_URI} ^(.*)$
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_URI} !.(css|gif|ico|jpg|js|png|swf|txt)$
+   RewriteRule ^(.*)$ index.php/$1 [L]
+
    # Send request via index.php
 
-   RewriteCond %{REQUEST_FILENAME} !-f
-   RewriteCond %{REQUEST_FILENAME} !-d
-   RewriteRule ^(.*)$ index.php/$1 [L]
+   # RewriteCond %{REQUEST_FILENAME} !-f
+   #RewriteCond %{REQUEST_FILENAME} !-d
+
+   #RewriteRule ^(.+)$ index.php/$1 [L]
 
 </IfModule>

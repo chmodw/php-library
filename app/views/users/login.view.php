@@ -1,3 +1,3 @@
-<?php
+<?php require VIEW_PATH . "parts/header.php"; ?>
 
-var_dump($data);
+<?php require VIEW_PATH . "parts/footer.php"; ?>
