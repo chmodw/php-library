@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Index controller class
  *
@@ -22,6 +23,7 @@ class Index extends Controller
      */
     public function index()
     {
-        $this->view("index");
+        // $this->view("dash/index");
+        print("hello ");
     }
 }

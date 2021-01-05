@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Core class.
  *
@@ -88,7 +89,7 @@ class Core
 
         if (file_exists(CONTROLLER_PATH . $controller . ".php")) {
             $controllerObj = new $controller();
-            
+
             if (is_callable(array($controllerObj, $action))) {
                 $controllerObj->$action($params);
             } else {

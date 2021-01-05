@@ -8,7 +8,7 @@
    RewriteCond %{REQUEST_URI} ^(.*)$
    RewriteCond %{REQUEST_FILENAME} !-f
    RewriteCond %{REQUEST_URI} !.(css|gif|ico|jpg|js|png|swf|txt)$
-   RewriteRule ^(.*)$ index.php/$1 [L]
+   RewriteRule ^(.+)$ index.php/$1 [L]
 
    # Send request via index.php
 
