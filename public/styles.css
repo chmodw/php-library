@@ -1,5 +1,11 @@
 @import "bootswatch.css";
 
-body{
-    background: red;
+/* Login page */
+.login-card-title{
+    font-size: 1.2rem;
+}
+
+.user-register-card{
+    background: #eee;
+    border: none;
 }

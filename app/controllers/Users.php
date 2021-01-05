@@ -1,4 +1,5 @@
 <?php
+
 /**
  * User controller class : handles user related stuff
  *
@@ -22,9 +23,9 @@ class Users extends Controller
      */
     public function index()
     {
-        print ("user index");
+        print("user index");
     }
-    
+
     /**
      * If the request is get shows the login form
      * If the request is post authenticate the user
@@ -42,7 +43,22 @@ class Users extends Controller
 
         // Authenticate the user
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            return print ("user authenticating");
+            return print("user authenticating");
+        }
+    }
+
+    /**
+     * If the request is get shows the login form
+     * If the request is post authenticate the user
+     *
+     * @param null
+     *
+     * @return Model
+     */
+    public function userRegister()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            return print("user registering");
         }
     }
 }
