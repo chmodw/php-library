@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Base Controller class to inherited by other controller classes.
  *
@@ -34,11 +35,11 @@ class Controller
      *
      * @return null
      */
-    public function view($view, $data = [])
+    public function view(String $view, array $data)
     {
 
         if (file_exists(VIEW_PATH . $view . '.view.php')) {
-            include_once VIEW_PATH . $view . '.view.php';
+            include VIEW_PATH . $view . '.view.php';
         } else {
             die('View Error');
         }
