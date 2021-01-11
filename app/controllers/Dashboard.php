@@ -11,7 +11,7 @@
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link     http://example.com/PHP-Library
  */
-class Dashboard extends Controller
+class Book extends Controller
 {
 
     /**
