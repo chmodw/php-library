@@ -9,6 +9,8 @@ body {
 
 #main {
   position: relative;
+  padding: 50px 20px 0;
+  background: #ddd;
 }
 /* background-color: #fff;
 color: #111;
@@ -18,4 +20,8 @@ font-family: "Lucida Sans Unicode", "Lucida Sans", sans-serif; */
 
 .warning {
   color: #ff0000;
+}
+
+#search-form input {
+  width: 100%;
 }
