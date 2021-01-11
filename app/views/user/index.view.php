@@ -8,14 +8,19 @@
         <div class="row">
             <div class="three columns">
                 <div id="search-form">
-                    <form id="search-form" method="POST" action="<?php echo SITE_HOME; ?>books/find">
-                        <input class="full-width" type="text" placeholder="Book Title" id="book-title" required>
+                    <form id="search-form" method="POST" action="<?php echo SITE_HOME; ?>users/find">
+                        <input class="full-width" type="text" placeholder="Username" id="username" required>
                         <input class="button-primary" type="submit" value="Search">
                     </form>
                 </div>
+
+                <div class="options-menu">
+
+                </div>
+
             </div>
             <div class="nine columns">
-                <h1 class="dash-title">Book catalog</h1>
+                <h1 class="dash-title">Registered Users</h1>
                 <table class="u-full-width">
                     <thead>
                         <tr>

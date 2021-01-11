@@ -23,7 +23,7 @@ class Users extends Controller
      */
     public function index()
     {
-        $this->view("users", []);
+        $this->view("user/index", []);
     }
 
     /**
@@ -38,7 +38,7 @@ class Users extends Controller
     {
         // shows the login page
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            return $this->view("login", $data = []);
+            return $this->view("user/login", $data = []);
         }
 
         // Authenticate the user

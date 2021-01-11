@@ -51,6 +51,7 @@ nav ul li.icon {
     display: none;
   }
   nav ul li.icon {
+    float: right;
     display: inline-block;
   }
 }
