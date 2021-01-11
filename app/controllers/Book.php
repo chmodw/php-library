@@ -38,10 +38,15 @@ class Book extends Controller
      */
     public function new()
     {
+        // test data get this from the database
+        $data = array("categories" => [["id" => 1, "category" => "Fiction"], ["id" => 2, "id" => "Scary"]]);
+
         // shows the login page
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            return $this->view("book/new", []);
+            return $this->view("book/new", $data);
         }
+
+        // Save authors as serialized array
 
         // Authenticate the user
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

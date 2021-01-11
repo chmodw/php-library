@@ -35,7 +35,7 @@ class Controller
      *
      * @return null
      */
-    public function view(String $view, array $data)
+    public function view(String $view, $data = [])
     {
 
         if (file_exists(VIEW_PATH . $view . '.view.php')) {
