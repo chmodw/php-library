@@ -11,7 +11,7 @@
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link     http://example.com/PHP-Library
  */
-class Index extends Controller
+class Dashboard extends Controller
 {
 
     /**
@@ -23,7 +23,6 @@ class Index extends Controller
      */
     public function index()
     {
-        // $this->view("dash/index");
-        print("hello ");
+        $this->view("Dashboard.view", []);
     }
 }
