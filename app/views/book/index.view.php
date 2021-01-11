@@ -7,12 +7,7 @@
     <main id="main">
         <div class="row">
             <div class="three columns">
-                <div id="search-form">
-                    <form id="search-form" method="POST" action="<?php echo SITE_HOME; ?>books/find">
-                        <input class="full-width" type="text" placeholder="Book Title" id="book-title" required>
-                        <input class="button-primary" type="submit" value="Search">
-                    </form>
-                </div>
+                <?php include "book.sidebar.view.php"; ?>
             </div>
             <div class="nine columns">
                 <h1 class="dash-title">Book catalog</h1>
