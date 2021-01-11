@@ -2,6 +2,8 @@
 @import "skeleton.css";
 @import "login.css";
 @import "nav.css";
+@import "sidebars.css";
+@import "users.css";
 
 body {
   background-color: #1499dc;

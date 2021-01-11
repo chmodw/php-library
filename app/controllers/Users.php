@@ -38,7 +38,7 @@ class Users extends Controller
     {
         // shows the login page
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            return $this->view("user/login", $data = []);
+            return $this->view("user/login", []);
         }
 
         // Authenticate the user
@@ -55,14 +55,11 @@ class Users extends Controller
      *
      * @return Model
      */
-    public function userRegister()
+    public function new()
     {
-        // regEmailError. regPhoneError, regUsernameError, regPasswordError
-
-        $data = array("message" => "Hello", "regEmailError" => "This is a test error");
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $this->view("users/login", $data);
+        // loads the new create new user form
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $this->view("user/create", []);
         }
     }
 }

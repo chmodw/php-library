@@ -7,16 +7,8 @@
     <main id="main">
         <div class="row">
             <div class="three columns">
-                <div id="search-form">
-                    <form id="search-form" method="POST" action="<?php echo SITE_HOME; ?>users/find">
-                        <input class="full-width" type="text" placeholder="Username" id="username" required>
-                        <input class="button-primary" type="submit" value="Search">
-                    </form>
-                </div>
 
-                <div class="options-menu">
-
-                </div>
+                <?php include "user.sidebar.view.php"; ?>
 
             </div>
             <div class="nine columns">
