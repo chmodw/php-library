@@ -11,6 +11,7 @@ body {
   position: relative;
   padding: 50px 20px 0;
   background: #ddd;
+  min-height: 89vh;
 }
 /* background-color: #fff;
 color: #111;
@@ -24,4 +25,10 @@ font-family: "Lucida Sans Unicode", "Lucida Sans", sans-serif; */
 
 #search-form input {
   width: 100%;
+}
+
+/* Dashboard */
+.dash-title {
+  font-size: 20px;
+  font-family: "Lucida Sans Unicode", "Lucida Sans", sans-serif;
 }

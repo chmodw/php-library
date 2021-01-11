@@ -51,7 +51,6 @@ nav ul li.icon {
     display: none;
   }
   nav ul li.icon {
-    float: right;
     display: inline-block;
   }
 }
@@ -86,6 +85,7 @@ nav ul li.icon {
 
 #nav-title {
   font-weight: 600;
+  color: #0e618c;
 }
 
 #nav-title:hover {

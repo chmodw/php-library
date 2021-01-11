@@ -23,7 +23,7 @@ class Users extends Controller
      */
     public function index()
     {
-        print("user index");
+        $this->view("users", []);
     }
 
     /**
