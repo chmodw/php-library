@@ -38,5 +38,6 @@ class Category extends Controller
      */
     public function new()
     {
+        $this->view("category/new", []);
     }
 }
