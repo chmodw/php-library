@@ -39,7 +39,7 @@ class Book extends Controller
     public function new()
     {
         // test data get this from the database
-        $data = array("categories" => [["id" => 1, "category" => "Fiction"], ["id" => 2, "id" => "Scary"]]);
+        $data = array("categories" => [["id" => 1, "name" => "Fiction"], ["id" => 2, "name" => "Scary"]]);
 
         // shows the login page
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
