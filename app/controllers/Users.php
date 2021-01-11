@@ -38,7 +38,7 @@ class Users extends Controller
     {
         // shows the login page
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            return $this->view("users/login", $data = []);
+            return $this->view("login", $data = []);
         }
 
         // Authenticate the user
