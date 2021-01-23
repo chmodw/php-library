@@ -106,8 +106,8 @@ CREATE TABLE `users` (
   `phone` int(11) NOT NULL,
   `authorized` tinyint(1) NOT NULL DEFAULT 0,
   `role` enum('librarian','student','professor','') NOT NULL,
-  `dateCreated` date NOT NULL DEFAULT current_timestamp(),
-  `dateUpdated` date NOT NULL DEFAULT current_timestamp()
+  `dateCreated` timestamp NOT NULL DEFAULT current_timestamp(),
+  `dateUpdated` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

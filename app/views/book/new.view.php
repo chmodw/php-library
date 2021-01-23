@@ -16,13 +16,13 @@
                         <div class="row">
                             <div class="twelve columns">
                                 <label for="name">Book Title</label>
-                                <input class="u-full-width" type="text" placeholder="Title" id="name" required>
+                                <input class="u-full-width" type="text" placeholder="Title" id="name" name="name" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="twelve columns">
                                 <label for="authors">Author(s)</label>
-                                <input class="u-full-width has-form-field-comment" type="text" placeholder="Name Of the Author(s)" id="fullName" required minlength="6">
+                                <input class="u-full-width has-form-field-comment" type="text" name="authors" placeholder="Name Of the Author(s)" id="fullName" required minlength="6">
                                 <p class="form-field-comment">If has more than one author please separate with a comma ","</p>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="six columns">
                                 <label for="isbn"># ISBN</label>
-                                <input class="u-full-width" type="number" placeholder="ISBN" id="isbn">
+                                <input class="u-full-width" type="number" placeholder="ISBN" name="isbn" id="isbn">
                             </div>
                         </div>
                         <input type="hidden" name="dateCreated" value="<?php echo date('Y-m-d H:i:s'); ?>">

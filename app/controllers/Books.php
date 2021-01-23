@@ -11,7 +11,7 @@
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link     http://example.com/PHP-Library
  */
-class Book extends Controller
+class Books extends Controller
 {
 
     /**
@@ -50,7 +50,9 @@ class Book extends Controller
 
         // Authenticate the user
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            return print("New Book Creating");
+
+
+            var_dump($_POST);
         }
     }
 }

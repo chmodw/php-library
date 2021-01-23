@@ -26,11 +26,11 @@ class DB
      */
     public function __construct()
     {
-        $dsn = 'mysql:host='.DB_HOST.';dbname='. DB_NAME;
+        $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME;
 
         $options = array(
-        PDO::ATTR_PERSISTENT => true,
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            PDO::ATTR_PERSISTENT => true,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         );
 
         // Creating database PDO Connection
@@ -51,7 +51,7 @@ class DB
      */
     public function query(String $queryString)
     {
-        $this->stmt = $this->dbh->prepare($sql);
+        $this->stmt = $this->dbh->prepare($queryString);
     }
 
     /**
@@ -61,9 +61,9 @@ class DB
      *
      * @return null
      */
-    public function execute(array $data)
+    public function execute(String $queryString, array $data)
     {
-        return $this->dbh->prepare($sql)->execute($data);
+        return $this->dbh->prepare($queryString)->execute($data);
     }
 }
 
