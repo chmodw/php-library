@@ -7,6 +7,6 @@
     </div>
 
     <div class="options-menu">
-        <a class="button" href="<?php echo SITE_HOME . "category/new"; ?>">New Category</a>
+        <a class="button" href="<?php echo SITE_HOME . "categories/new"; ?>">New Category</a>
     </div>
 </div>

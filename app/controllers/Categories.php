@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Category controller class
+ * Categories controller class
  *
  * PHP Version 8.0.0
  *
@@ -11,7 +11,7 @@
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link     http://example.com/PHP-Library
  */
-class Category extends Controller
+class Categories extends Controller
 {
 
     /**
@@ -27,10 +27,10 @@ class Category extends Controller
     }
 
     /**
-     * Handles new books
+     * Handles new Categories
      * 
-     * POST - creates a new book in the database
-     * GET - opens the create new book form
+     * POST - creates a new Categgory in the database
+     * GET - opens the create new Categgory form
      *
      * @param null
      *
@@ -38,6 +38,14 @@ class Category extends Controller
      */
     public function new()
     {
-        $this->view("category/new", []);
+        // shows the new category form page
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $this->view("category/new", []);
+        }
+
+        // creating a new Category
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            return print("new is creating");
+        }
     }
 }
