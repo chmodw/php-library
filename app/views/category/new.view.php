@@ -11,7 +11,7 @@
             </div>
             <div class="nine columns">
                 <h1 class="dash-title">Create New Category</h1>
-                <form method="POST" action="">
+                <form method="POST" action="<?php echo SITE_HOME . "categories/new"; ?>">
                     <div class="row">
                         <div class="twelve columns">
                             <label for="name">Category Name</label>
