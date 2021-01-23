@@ -24,7 +24,18 @@ class Category
      */
     public function __construct()
     {
-        // include LIBS_PATH . "DB.php";
         $this->_db = new DB;
+    }
+
+    /**
+     * Function to create new Category
+     *
+     * @param null
+     *
+     * @return null
+     */
+    public function create($data)
+    {
+
     }
 }
