@@ -3,7 +3,7 @@
 /**
  * Core class.
  *
- * PHP Version 8.0.0
+ * PHP Version 7.4.0
  *
  * @category PHP-Library
  * @package  PHP-Library
