@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 04, 2021 at 03:25 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Host: localhost:3306
+-- Generation Time: Jan 24, 2021 at 08:57 PM
+-- Server version: 8.0.22-0ubuntu0.20.04.3
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,9 +29,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `authors` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(256) NOT NULL,
-  `createdOn` timestamp NULL DEFAULT current_timestamp(),
+  `createdOn` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedOn` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -41,10 +42,10 @@ CREATE TABLE `authors` (
 --
 
 CREATE TABLE `bookauthors` (
-  `id` int(11) NOT NULL,
-  `bookId` int(11) NOT NULL,
-  `authorId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `bookId` int NOT NULL,
+  `authorId` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -53,11 +54,11 @@ CREATE TABLE `bookauthors` (
 --
 
 CREATE TABLE `books` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
-  `categoryId` int(11) DEFAULT NULL,
-  `ISBN` int(11) DEFAULT NULL,
-  `createdOn` timestamp NULL DEFAULT current_timestamp(),
+  `categoryId` int DEFAULT NULL,
+  `ISBN` int DEFAULT NULL,
+  `createdOn` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedOn` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -68,15 +69,15 @@ CREATE TABLE `books` (
 --
 
 CREATE TABLE `borrowings` (
-  `id` int(11) NOT NULL,
-  `bookId` int(11) DEFAULT NULL,
-  `issuedTo` int(11) NOT NULL COMMENT 'user id',
-  `issuedBy` int(11) NOT NULL COMMENT 'issued user id',
-  `issuedOn` timestamp NOT NULL DEFAULT current_timestamp(),
+  `id` int NOT NULL,
+  `bookId` int DEFAULT NULL,
+  `issuedTo` int NOT NULL COMMENT 'user id',
+  `issuedBy` int NOT NULL COMMENT 'issued user id',
+  `issuedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `returnDate` timestamp NULL DEFAULT NULL,
-  `retrunStatus` tinyint(1) NOT NULL DEFAULT 0,
-  `extraDayFine` int(11) NOT NULL COMMENT 'fine for a day',
-  `fine` int(11) DEFAULT NULL
+  `retrunStatus` tinyint(1) NOT NULL DEFAULT '0',
+  `extraDayFine` int NOT NULL COMMENT 'fine for a day',
+  `fine` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -86,11 +87,22 @@ CREATE TABLE `borrowings` (
 --
 
 CREATE TABLE `category` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `createdOn` timestamp NULL DEFAULT current_timestamp(),
-  `updatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `categoryName` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `createdOn` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `categoryName`, `createdOn`, `updatedOn`) VALUES
+(1, 'Action', '2021-01-24 06:27:32', '2021-01-24 06:27:32'),
+(2, 'Thriller', '2021-01-24 06:28:23', '2021-01-24 06:28:23'),
+(3, 'Animation', '2021-01-24 06:31:03', '2021-01-24 06:31:03'),
+(4, 'Sci-fi', '2021-01-24 08:05:15', '2021-01-24 08:05:15'),
+(6, 'updated', '2021-01-24 08:06:11', '2021-01-24 11:26:43');
 
 -- --------------------------------------------------------
 
@@ -99,50 +111,20 @@ CREATE TABLE `category` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(256) NOT NULL,
   `email` varchar(245) NOT NULL,
-  `phone` int(11) NOT NULL,
-  `authorized` tinyint(1) NOT NULL DEFAULT 0,
+  `phone` int NOT NULL,
+  `authorized` tinyint(1) NOT NULL DEFAULT '0',
   `role` enum('librarian','student','professor','') NOT NULL,
-  `dateCreated` timestamp NOT NULL DEFAULT current_timestamp(),
-  `dateUpdated` timestamp NOT NULL DEFAULT current_timestamp()
+  `dateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `authors`
---
-ALTER TABLE `authors`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `bookauthors`
---
-ALTER TABLE `bookauthors`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `bookId` (`bookId`),
-  ADD KEY `authorId` (`authorId`);
-
---
--- Indexes for table `books`
---
-ALTER TABLE `books`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `categoryId` (`categoryId`);
-
---
--- Indexes for table `borrowings`
---
-ALTER TABLE `borrowings`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `bookId` (`bookId`),
-  ADD KEY `issuedTo` (`issuedTo`),
-  ADD KEY `issuedBy` (`issuedBy`);
 
 --
 -- Indexes for table `category`
@@ -151,84 +133,14 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `authors`
---
-ALTER TABLE `authors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `bookauthors`
---
-ALTER TABLE `bookauthors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `books`
---
-ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `borrowings`
---
-ALTER TABLE `borrowings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `authors`
---
-ALTER TABLE `authors`
-  ADD CONSTRAINT `authors_ibfk_1` FOREIGN KEY (`id`) REFERENCES `bookauthors` (`authorId`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `bookauthors`
---
-ALTER TABLE `bookauthors`
-  ADD CONSTRAINT `bookauthors_ibfk_1` FOREIGN KEY (`bookId`) REFERENCES `books` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `books`
---
-ALTER TABLE `books`
-  ADD CONSTRAINT `books_ibfk_3` FOREIGN KEY (`id`) REFERENCES `borrowings` (`bookId`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `category`
---
-ALTER TABLE `category`
-  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`id`) REFERENCES `books` (`categoryId`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id`) REFERENCES `borrowings` (`issuedTo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
