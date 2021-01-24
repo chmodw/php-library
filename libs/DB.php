@@ -55,6 +55,18 @@ class DB
     }
 
     /**
+     * Get a single record from the database
+     *
+     * @param String $queryString query string
+     *
+     * @return null
+     */
+    public function getOne(String $queryString)
+    {
+        return $this->conn->query($queryString)->fetch();
+    }
+
+    /**
      * Accepts query string to prepare for executing.
      *
      * @param array $data data for executing

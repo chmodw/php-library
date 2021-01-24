@@ -85,4 +85,50 @@ class Categories extends Controller
             }
         }
     }
+
+    /**
+     * Handles Edit Categories
+     * 
+     * POST - Updates a Categgory in the database
+     * GET - opens the create new Categgory form with category data
+     *
+     * @param null
+     *
+     * @return Model
+     */
+    public function edit($params)
+    {
+
+        // shows the new category form page
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $res = $this->_model->findById($params[0]);
+
+            if ($res) {
+                return $this->view(
+                    "category/edit", 
+                    [
+                        "formData" => 
+                            [
+                                "id" => $res["id"],
+                                "categoryName" => $res["categoryName"],
+                            ]
+                    ]
+                );
+            } else {
+                header("Location: ". SITE_HOME ."categories");
+                die();
+                /**
+                 * @TODO : No were category found to edit
+                 **/
+            }
+
+        }
+
+        // Updating a Category
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // ["category_name"]
+            // ["id"]
+            // ["updatedOn"]
+        }
+    }
 }

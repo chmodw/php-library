@@ -58,4 +58,18 @@ class Category
     {
         return $this->_db->getMany("SELECT * FROM category");
     }
+
+    /**
+     * Find a single record categories from the database
+     *
+     * @param INT $id
+     *
+     * @return boolean
+     */
+    public function findById($id)
+    {
+        return $this->_db->getOne(
+            "SELECT * FROM category WHERE id='". $id ."' LIMIT 1"
+        );
+    }
 }
