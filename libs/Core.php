@@ -40,10 +40,8 @@ class Core
 
         // Loading core classes
         include LIBS_PATH . "Controller.php";
-        include LIBS_PATH . "Loader.php";
         include LIBS_PATH . "DB.php";
-        include LIBS_PATH . "Model.php";
-
+        
         // Load configuration file
         $GLOBALS['config'] = include CONFIG_PATH . "config.php";
 

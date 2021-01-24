@@ -15,7 +15,6 @@ class DB
 {
 
     protected $conn;
-    protected $stmt;
 
     /**
      * Creates Database PDO connection when creating this object.
@@ -46,25 +45,13 @@ class DB
     /**
      * Accepts query string to prepare for executing.
      *
-     * @param String $queryString query string
-     *
-     * @return null
-     */
-    public function query(String $queryString)
-    {
-        $this->stmt = $this->dbh->prepare($queryString);
-    }
-
-    /**
-     * Accepts query string to prepare for executing.
-     *
      * @param array $data data for executing
      *
      * @return null
      */
     public function execute(String $queryString, array $data)
     {
-        return $this->dbh->prepare($queryString)->execute($data);
+        return $this->conn->prepare($queryString)->execute($data);
     }
 }
 

@@ -13,6 +13,7 @@
  */
 class Categories extends Controller
 {
+    private $_model;
 
     /**
      * Construction method for Categories Controller
@@ -20,11 +21,12 @@ class Categories extends Controller
      * @param null
      *
      * @return null
-     */
+     */    
     public function __construct()
     {
         // including model class
         include_once MODEL_PATH . "Category.php";
+        $this->_model = new Category;
     }
 
     /**
@@ -58,10 +60,9 @@ class Categories extends Controller
 
         // creating a new Category
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            $model = new Category;
-
-            return print("new is creating");
+            print ($this->_model->create(
+                ["category_name" => $_POST["category_name"]]
+            ));
         }
     }
 }

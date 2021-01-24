@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Categories controller class
+ * Category model class
  *
  * PHP Version 8.0.0
  *
@@ -18,9 +18,9 @@ class Category
     /**
      * Construction method for Category model
      *
-     * @param null
+     * @param null 
      *
-     * @return null
+     * @return null 
      */
     public function __construct()
     {
@@ -30,12 +30,15 @@ class Category
     /**
      * Function to create new Category
      *
-     * @param null
+     * @param String $category_name name of the new category
      *
-     * @return null
+     * @return boolean
      */
-    public function create($data)
+    public function create(array $data)
     {
-
+        $query = 'INSERT INTO category (categoryName) VALUES (:categoryName)';
+        $this->_db->execute($query, ["categoryName" => $data['category_name']]);
+        
+        return false;
     }
 }

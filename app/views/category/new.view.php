@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="twelve columns">
                             <label for="name">Category Name</label>
-                            <input class="u-full-width" type="text" placeholder="Name" id="name" required>
+                            <input class="u-full-width" type="text" name="category_name" placeholder="Name" id="name" required>
                         </div>
                     </div>
                     <input type="hidden" name="dateCreated" value="<?php echo date('Y-m-d H:i:s'); ?>">
