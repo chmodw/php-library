@@ -15,17 +15,24 @@
                 <table class="u-full-width">
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>Name</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Fiction</td>
-                            <td>Edit Delete</td>
-                        </tr>
+                        <?php foreach ($data["categories"] as $row) : ?>
+                            <tr>
+                                <td><?php echo $row["categoryName"]; ?></td>
+                                <td>
+                                    <a href="<?php echo SITE_HOME . "categories/edit/" . $row["id"]; ?>">
+                                        Edit
+                                    </a>
+                                    <a href="<?php echo SITE_HOME . "categories/delete/" . $row["id"]; ?>">
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
 

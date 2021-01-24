@@ -25,7 +25,7 @@ class Categories extends Controller
     public function __construct()
     {
         // including model class
-        include_once MODEL_PATH . "Category.php";
+        $this->model("Category");
         $this->_model = new Category;
     }
 
@@ -38,7 +38,10 @@ class Categories extends Controller
      */
     public function index()
     {
-        $this->view("category/index", []);
+        return $this->view(
+            "category/index", 
+            ["categories" => $this->_model->getAll()]
+        );
     }
 
     /**
@@ -55,14 +58,31 @@ class Categories extends Controller
     {
         // shows the new category form page
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $this->view("category/new", []);
+            return $this->view("category/new", []);
         }
 
         // creating a new Category
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            print ($this->_model->create(
+            $res = $this->_model->create(
                 ["category_name" => $_POST["category_name"]]
-            ));
+            );
+
+            if ($res) {
+                header("Location: ". SITE_HOME ."categories");
+                die();
+                /**
+                 * @TODO : session create message
+                 **/
+            } else {
+                return $this->view(
+                    "category/new", [
+                        "error" => "Error! Could not saved the category.",
+                        "fields" => [
+                            "category_name" => $_POST["category_name"],
+                        ]
+                    ]
+                );
+            }
         }
     }
 }

@@ -35,9 +35,8 @@ class Controller
      *
      * @return null
      */
-    public function view(String $view, $data = [])
+    public function view(String $view, $data)
     {
-
         if (file_exists(VIEW_PATH . $view . '.view.php')) {
             include VIEW_PATH . $view . '.view.php';
         } else {

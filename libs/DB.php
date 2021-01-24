@@ -43,6 +43,18 @@ class DB
     }
 
     /**
+     * Get many records from the database
+     *
+     * @param String $queryString query string
+     *
+     * @return null
+     */
+    public function getMany(String $queryString)
+    {
+        return $this->conn->query($queryString)->fetchAll();
+    }
+
+    /**
      * Accepts query string to prepare for executing.
      *
      * @param array $data data for executing

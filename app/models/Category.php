@@ -36,9 +36,26 @@ class Category
      */
     public function create(array $data)
     {
-        $query = 'INSERT INTO category (categoryName) VALUES (:categoryName)';
-        $this->_db->execute($query, ["categoryName" => $data['category_name']]);
+        try {
+            $query = 'INSERT INTO category (categoryName) VALUES (:categoryName)';
+            $this->_db->execute($query, ["categoryName" => $data['category_name']]);
         
-        return false;
+            return true;
+        
+        }catch (Exception $e){
+            return false;
+        }
+    }
+
+    /**
+     * Retrieve all the categories from the database
+     *
+     * @param null
+     *
+     * @return boolean
+     */
+    public function getAll()
+    {
+        return $this->_db->getMany("SELECT * FROM category");
     }
 }
