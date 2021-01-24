@@ -88,4 +88,19 @@ class Category
             $data
         );
     }
+
+    /**
+     * Delete a category
+     *
+     * @param Array $data
+     *
+     * @return boolean
+     */
+    public function delete($data)
+    {
+        return $this->_db->execute(
+            "DELETE FROM category WHERE id=:id LIMIT 1",
+            $data
+        );
+    }
 }

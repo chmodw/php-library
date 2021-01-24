@@ -24,12 +24,13 @@
                             <tr>
                                 <td><?php echo $row["categoryName"]; ?></td>
                                 <td>
-                                    <a href="<?php echo SITE_HOME . "categories/edit/" . $row["id"]; ?>">
+                                    <a href="<?php echo SITE_HOME . "categories/edit/" . $row["id"]; ?>" class="button button-secondary">
                                         Edit
                                     </a>
-                                    <a href="<?php echo SITE_HOME . "categories/delete/" . $row["id"]; ?>">
-                                        Delete
-                                    </a>
+                                    <form action="<?php echo SITE_HOME . "categories/delete"; ?>" method="POST">
+                                        <input type="hidden" name="id" value="<?php echo $row["id"] ?>" />
+                                        <input type="submit" class="button button-secondary" value="Delete">
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

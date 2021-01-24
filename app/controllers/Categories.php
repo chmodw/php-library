@@ -147,4 +147,40 @@ class Categories extends Controller
             }
         }
     }
+
+    /**
+     * Delete a category from the database
+     * 
+     * POST - Updates a Categgory in the database
+     * GET - opens the create new Categgory form with category data
+     *
+     * @param null
+     *
+     * @return Model
+     */
+    public function delete($params)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $res = $this->_model->delete(
+                [
+                    "id" => $_POST["id"],
+                ]
+            );
+
+            if ($res) {
+                header("Location: ". SITE_HOME ."categories");
+                die();
+                /**
+                 * @TODO : session create message
+                 **/
+            } else {
+                // Update Failed
+                // session message
+            }
+
+        } else {
+            header("Location: ". SITE_HOME ."categories");
+            die();
+        }
+    }
 }
