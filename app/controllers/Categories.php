@@ -126,9 +126,25 @@ class Categories extends Controller
 
         // Updating a Category
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // ["category_name"]
-            // ["id"]
-            // ["updatedOn"]
+
+            $res = $this->_model->update(
+                [
+                    "id" => $_POST["id"],
+                    "categoryName" => $_POST["category_name"],
+                    "updatedOn" => $_POST["updatedOn"],
+                ]
+            );
+
+            if ($res) {
+                header("Location: ". SITE_HOME ."categories");
+                die();
+                /**
+                 * @TODO : session create message
+                 **/
+            } else {
+                // Update Failed
+                // session message
+            }
         }
     }
 }

@@ -72,4 +72,20 @@ class Category
             "SELECT * FROM category WHERE id='". $id ."' LIMIT 1"
         );
     }
+
+    /**
+     * Edit a category
+     *
+     * @param Array $data
+     *
+     * @return boolean
+     */
+    public function update($data)
+    {
+        return $this->_db->execute(
+            "UPDATE category SET categoryName=:categoryName, updatedOn=:updatedOn
+             WHERE id=:id",
+            $data
+        );
+    }
 }
